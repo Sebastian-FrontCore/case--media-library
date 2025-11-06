@@ -1,18 +1,5 @@
 # Media Library Case Study
 
-## Getting Started
-
-```bash
-pnpm install
-pnpm db:push
-pnpm db:seed
-pnpm dev
-```
-
-Visit `http://localhost:3000/acme-co/media` to begin.
-
-## Tasks
-
 This is a media library for managing images across different organizations. The foundation is in place — your tasks are to:
 
 1. Let users update the name and descriptions of media files
