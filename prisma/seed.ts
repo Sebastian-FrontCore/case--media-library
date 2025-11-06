@@ -1,0 +1,335 @@
+import { PrismaClient } from "../generated/prisma";
+
+const prisma = new PrismaClient();
+
+const organizations = [
+  {
+    slug: "acme-co",
+    name: "Acme Co",
+    media: [
+      {
+        name: "Mountain Landscape",
+        altText: "Snow-capped mountain peak with pink cherry blossoms",
+        url: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 215_432,
+        width: 800,
+        height: 1200,
+      },
+      {
+        name: "Ocean Waves",
+        altText: "Turquoise ocean waves crashing on sandy beach",
+        url: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 168_993,
+        width: 800,
+        height: 600,
+      },
+      {
+        name: "City Lights",
+        altText: "Nighttime cityscape with illuminated skyscrapers",
+        url: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 182_204,
+        width: 800,
+        height: 1000,
+      },
+      {
+        name: "Forest Path",
+        altText: "Sunlight filtering through tall trees in dense forest",
+        url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 195_432,
+        width: 800,
+        height: 533,
+      },
+      {
+        name: "Desert Dunes",
+        altText: "Rolling sand dunes under golden sunset light",
+        url: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 158_993,
+        width: 800,
+        height: 1066,
+      },
+      {
+        name: "Vintage Camera",
+        altText: "Classic film camera on wooden surface",
+        url: "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 145_204,
+        width: 800,
+        height: 800,
+      },
+      {
+        name: "Tropical Beach",
+        altText: "Palm trees swaying over white sand beach",
+        url: "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 178_550,
+        width: 800,
+        height: 1067,
+      },
+      {
+        name: "Northern Lights",
+        altText: "Aurora borealis dancing over snowy landscape",
+        url: "https://images.unsplash.com/photo-1579033461380-adb47c3eb938?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 189_340,
+        width: 800,
+        height: 600,
+      },
+      {
+        name: "Lavender Fields",
+        altText: "Purple lavender flowers stretching to horizon",
+        url: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 201_245,
+        width: 800,
+        height: 1200,
+      },
+      {
+        name: "Autumn Forest",
+        altText: "Golden and red leaves covering forest floor",
+        url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 167_890,
+        width: 800,
+        height: 533,
+      },
+      {
+        name: "Starry Night",
+        altText: "Milky way galaxy over silhouetted mountains",
+        url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 195_670,
+        width: 800,
+        height: 1200,
+      },
+      {
+        name: "Cherry Blossoms",
+        altText: "Pink sakura flowers in full bloom",
+        url: "https://images.unsplash.com/photo-1522383225653-ed111181a951?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 156_440,
+        width: 800,
+        height: 1067,
+      },
+      {
+        name: "Waterfall",
+        altText: "Cascading waterfall in lush rainforest",
+        url: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 203_890,
+        width: 800,
+        height: 600,
+      },
+      {
+        name: "Hot Air Balloons",
+        altText: "Colorful balloons floating over valley at sunrise",
+        url: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 174_220,
+        width: 800,
+        height: 800,
+      },
+      {
+        name: "Venice Canal",
+        altText: "Traditional gondola on narrow venetian waterway",
+        url: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 188_990,
+        width: 800,
+        height: 1200,
+      },
+      {
+        name: "Cactus Garden",
+        altText: "Variety of desert cacti and succulents",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=800",
+        mimeType: "image/jpeg",
+        sizeBytes: 162_340,
+        width: 800,
+        height: 533,
+      },
+    ],
+  },
+	{
+		slug: "globex",
+		name: "Globex",
+		media: [
+			{
+				name: "Coffee Morning",
+				altText: "Steaming cup of coffee with latte art",
+				url: "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 192_884,
+				width: 800,
+				height: 1200,
+			},
+			{
+				name: "Workspace",
+				altText: "Minimal desk setup with laptop and plants",
+				url: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 247_115,
+				width: 800,
+				height: 600,
+			},
+			{
+				name: "Abstract Art",
+				altText: "Colorful abstract watercolor painting",
+				url: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 172_441,
+				width: 800,
+				height: 1000,
+			},
+			{
+				name: "Architecture",
+				altText: "Modern building with geometric glass facade",
+				url: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 205_884,
+				width: 800,
+				height: 533,
+			},
+			{
+				name: "Mountain Peak",
+				altText: "Snow-covered mountain summit at golden hour",
+				url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 198_220,
+				width: 800,
+				height: 1200,
+			},
+			{
+				name: "Book Collection",
+				altText: "Vintage books stacked on wooden shelf",
+				url: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 176_550,
+				width: 800,
+				height: 800,
+			},
+			{
+				name: "Sunset Sky",
+				altText: "Dramatic orange and purple clouds at dusk",
+				url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 185_440,
+				width: 800,
+				height: 533,
+			},
+			{
+				name: "Street Art",
+				altText: "Vibrant graffiti mural on urban wall",
+				url: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 201_330,
+				width: 800,
+				height: 1067,
+			},
+			{
+				name: "Minimalist Room",
+				altText: "Clean white interior with natural light",
+				url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 164_220,
+				width: 800,
+				height: 600,
+			},
+			{
+				name: "Flower Bouquet",
+				altText: "Fresh wildflowers in glass vase",
+				url: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 178_990,
+				width: 800,
+				height: 1200,
+			},
+			{
+				name: "City Street",
+				altText: "Busy urban intersection with pedestrians",
+				url: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 192_440,
+				width: 800,
+				height: 533,
+			},
+			{
+				name: "Rustic Wood",
+				altText: "Weathered wooden planks texture close-up",
+				url: "https://images.unsplash.com/photo-1419064642531-e575728395f2?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 156_770,
+				width: 800,
+				height: 800,
+			},
+			{
+				name: "Foggy Morning",
+				altText: "Misty landscape with rolling hills",
+				url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 171_880,
+				width: 800,
+				height: 1067,
+			},
+			{
+				name: "Neon Lights",
+				altText: "Colorful neon signs in nighttime cityscape",
+				url: "https://images.unsplash.com/photo-1509023464722-18d996393ca8?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 188_550,
+				width: 800,
+				height: 600,
+			},
+			{
+				name: "Succulent Plant",
+				altText: "Green succulent in terracotta pot",
+				url: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 149_330,
+				width: 800,
+				height: 1200,
+			},
+			{
+				name: "Rocky Coast",
+				altText: "Waves crashing against rocky shoreline",
+				url: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+				mimeType: "image/jpeg",
+				sizeBytes: 195_220,
+				width: 800,
+				height: 533,
+			},
+		],
+	},
+];
+
+async function main() {
+  await prisma.mediaAsset.deleteMany();
+  await prisma.organization.deleteMany();
+
+  for (const org of organizations) {
+    await prisma.organization.create({
+      data: {
+        slug: org.slug,
+        name: org.name,
+        media: {
+          create: org.media,
+        },
+      },
+    });
+  }
+}
+
+main()
+  .then(() => {
+    console.log("Database seed completed.");
+  })
+  .catch((error) => {
+    console.error("Database seed failed.", error);
+    process.exitCode = 1;
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

@@ -1,0 +1,39 @@
+{
+	"i18n-ally.localesPaths": ["src/app/i18n/locales"],
+	"i18n-ally.dirStructure": "auto",
+	"i18n-ally.displayLanguage": "en",
+	"i18n-ally.enabledParsers": ["json"],
+	"i18n-ally.extract.keyMaxLength": 100,
+	"i18n-ally.extract.autoDetect": true,
+	"i18n-ally.localeCountryMap": {},
+	"i18n-ally.keystyle": "nested",
+	"i18n-ally.annotationDelimiter": ":",
+	"rest-client.environmentVariables": {
+		"$shared": {
+			"baseUrl": "http://localhost:3000",
+			"organizationId": "f58d41df-026d-4bf9-88f2-8c5f46062741",
+			"courseId": "9e17a46f-b7c1-4e8a-815f-f755b130367d",
+			"apiKey": ""
+		}
+	},
+	"editor.codeActionsOnSave": {
+		"source.addMissingImports.ts": "always",
+		"source.fixAll.eslint": "always",
+		"source.organizeImports": "always",
+		"source.fixAll.ts": "always",
+		"source.removeUnusedImports": "always",
+		"source.sortImports": "always",
+		"source.fixAll": "always"
+	},
+	// "prettier.configPath": "prettier.config.cjs",
+	// "prettier.ignorePath": ".prettierignore",
+	// "prettier.requireConfig": true,
+	"prettier.useEditorConfig": true,
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"i18n-ally.defaultNamespace": "",
+	"typescript.preferences.autoImportSpecifierExcludeRegexes": [
+		"@radix-ui",
+		"next/router"
+	],
+	"biome.enabled": true
+}
